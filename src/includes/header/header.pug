@@ -1,0 +1,43 @@
+header.header
+  .header__top
+    .container
+      .header__top-wrap
+        .header__contat
+          p 
+            i.icon-call-answer
+            | 0(559,779,709,312) 88 11 11
+          a(href="mailto:nurzamann-mail-ru")
+            i.icon-mail
+            | nurzamann-mail-ru 
+        .social
+          ul
+            mixin social(icon, link)
+              li
+                a(href=link)
+                  i(class=icon)
+            +social('icon-facebook','#')
+            +social('icon-instagram','#')
+            +social('icon-odnoklassniki','#')
+  .header__masterbar
+    .container
+      .header__masterbar-wrap
+        .header__logo
+          a(href="#")
+            img(src="assets/img/logo.svg" alt="")
+        .header__control      
+          .header.nav
+            ul
+              mixin nav(item,link)
+                 li(class=active).nav__item
+                  a(href=link)=item
+              +nav('Главная','#')
+              +nav('О Проекте','#')
+              +nav('Галерея','#')
+              +nav('Преимущества','#')
+              +nav('Объекты','#')
+              +nav('Контакты','#')
+          .btn-wrap
+            a(href="#").btn.btn_painted
+              |КОНСУЛЬТАЦИЯ
+
+

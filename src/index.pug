@@ -1,0 +1,121 @@
+extends layout/main/main
+block title
+  | main
+block main  
+
+  include includes/header/header
+
+  //- entry
+  .entry
+    .swiper-container.entry__bg
+      .container
+        .swiper-container.entry__slider.entry-js
+          .swiper-wrapper
+            mixin entryText(name, title, desc, link)
+              .swiper-slide
+                .entry__item
+                  h2.entry__name=name
+                  h3.entry__title=title
+                  p.entry__desc=desc
+                  .btn-wrap.btn-wrap_center
+                    a(href=link).btn.btn_secondary ПОДРОБНЕЕ
+            +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ “NURZAMAN”','Жилой комплекс премиум класса “Белгравия”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.', '#')
+            +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ1 “NURZAMAN”','Жилой комплекс премиум класса “Белгравия1”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.1', '#')
+
+          .navigation
+            .prev
+              i.icon-virustotal-icon            
+            .next          
+              i.icon-virustotal-icon            
+      ul.cb-slideshow
+        mixin entryBg(img)
+          li
+            span(style="background-image: url(assets/img/entry/"+img+")")
+        +entryBg('1.jpg')
+        +entryBg('2.jpg')
+        +entryBg('1.jpg')
+        +entryBg('2.jpg')
+        +entryBg('1.jpg')
+        +entryBg('2.jpg')
+  //- entry end
+
+  //- advantage
+  .advantage
+    .container
+      .advantage__wrap
+        mixin advantage(icon, title, desc) 
+          .advantage__item
+            .advantage__icon-wrap
+              i(class=icon)
+            .advantage__title=title
+            .advantage__desc=desc
+        +advantage('icon-locked','БЕЗОПАСНОСТЬ 24/7','Покой резидента Belgravia охраняется круглосуточно.')
+        +advantage('icon-p','СОБСТВЕННАЯ ПАРКОВКА','Для авто владельцев предусмотрена удобная и просторная парковка.')
+        +advantage('icon-forest','ЛАНДШАФТНЫЙ ДИЗАЙН','К удобству жителей продумана не только архитектура, но и озеленение площадки.')
+  //- advantage end
+
+  //- about
+  .about
+    .container
+      .about__wrap
+        .about__item
+          h2.title-secondary О ПРОЕКТЕ
+          p Жилой комплекс Belgravia – Это уникальный проект премиум класса, где вы будете чувствовать себя уютно и комфортно, наслаждаясь продуманным до мелочей пространства, как внутри своей квартиры, так и снаружи. Комплекс состоит из пяти отдельных 15-этажных корпусов. Каждая квартира имеет великолепный вид на горы.
+          .about__list
+            ul
+              li 10 лет опыта  
+              li Команда профессионалов  
+              li Успешные проекты
+              li Качественные материалы  
+          .btn-wrap
+            a(href="#").btn.btn_hollow КОНТАКТЫ
+        .about__item
+          .about__img.img
+            .img__wrap
+              img(src="assets/img/gallery/11.jpg" alt="")
+            .img__substrate
+
+  //- about end
+
+  //- gallery
+  .gallery(style="background-image: url('assets/img/gallery/2.jpg')")
+    .container
+      include includes/main-title/title
+      +title('ГАЛЕРЕЯ','title_light','Пройтись в Belgravia - незабываемый опыт. И мы с удовольствием представим вам эту возможность. Пока же вы можете пройтись по комплексу виртуально. Прочувствуйте чистоту и архитектурное мастерство.')
+    .swiper-container.gallery-js
+      .swiper-wrapper
+        .swiper-slide
+          .gallery__wrap
+            mixin gallery(srcImg, nameGallery)
+              .gallery__item
+                a.gallery__img(class=visibility data-fancybox=nameGallery href=srcImg)
+                  img(src=srcImg, alt="")
+                  i.icon-plus
+            +gallery('assets/img/gallery/1.jpg', 'gallery1')
+            +gallery('assets/img/gallery/2.jpg', 'gallery1')
+            +gallery('assets/img/gallery/3.jpg', 'gallery1')
+            +gallery('assets/img/gallery/4.jpg', 'gallery1')
+            +gallery('assets/img/gallery/5.jpg', 'gallery1')
+            +gallery('assets/img/gallery/6.png', 'gallery1')
+            +gallery('assets/img/gallery/7.jpg', 'gallery1')
+            +gallery('assets/img/gallery/8.jpg', 'gallery1')
+        .swiper-slide
+          .gallery__wrap
+            +gallery('assets/img/gallery/9.jpg', 'gallery1')
+            +gallery('assets/img/gallery/10.jpg', 'gallery1')
+            +gallery('assets/img/gallery/11.jpg', 'gallery1')
+            +gallery('assets/img/gallery/4.jpg', 'gallery1')
+            +gallery('assets/img/gallery/5.jpg', 'gallery1')
+            +gallery('assets/img/gallery/6.png', 'gallery1')
+            +gallery('assets/img/gallery/7.jpg', 'gallery1')
+            +gallery('assets/img/gallery/8.jpg', 'gallery1')
+      .swiper-pagination
+
+
+  //- gallery end
+
+
+  include includes/footer/footer
+
+
+  include includes/scripts 

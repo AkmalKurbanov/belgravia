@@ -1,0 +1,94 @@
+.header {
+  &__contat {
+    display: flex;
+    flex-direction: row;
+
+    p,
+    a {
+      color: $mc;
+      cursor: pointer;
+      transition: $tr;
+      font-size: rem(18px);
+      font-family: $roboto;
+
+      &:hover {
+        color: $wc;
+      }
+
+      i {
+        margin-right: rem(15px);
+      }
+    }
+
+    p {
+      margin-right: rem(57px);
+
+      i {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__top {
+    background: $sc;
+    padding: rem(15px) 0;
+  }
+
+  &__top-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  &__masterbar-wrap {
+    padding: rem(12px) 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__logo {
+    max-width: rem(100px);
+
+    svg,
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .nav {
+    margin-right: rem(67px);
+
+    ul {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__item {
+      margin-right: rem(20px);
+
+      a {
+        color: $sc;
+        font-size: rem(18px);
+
+        &:hover {
+          color: $mc;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+}

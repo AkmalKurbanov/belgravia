@@ -1,0 +1,41 @@
+// Сторонние библиотеки 
+// @import "../js/libs/--/--/";
+
+//---------------------------------------------
+
+// css файлы библиотек/плагинов
+// @import "../../node_modules/--/--/";
+
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/swiper/css/swiper.min.css";
+@import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+//---------------------------------------------
+
+// подключение сгенерированных иконок(fontello),
+// FontAwesome
+
+@import "../assets/icons/fontello/css/icon.css";
+
+//---------------------------------------------
+
+// подключение css файлов
+
+@import "fonts";
+@import "variables";
+@import "mixins/media";
+
+
+//---------------------------------------------
+
+
+//---------------------------------------------
+
+// Компоненты
+
+@import "components/base";
+@import "components/header";
+@import "components/entry/entry";
+@import "components/advantage/advantage";
+@import "components/about/about";
+@import "components/gallery/gallery";
+@import "components/footer";
