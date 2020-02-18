@@ -1,0 +1,49 @@
+.plan {
+  padding: rem(60px) 0 rem(40px);
+  position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-color: rgba(#383838, .5);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__img-wrap {
+    border-radius: rem(10px);
+    overflow: hidden;
+    max-width: rem(1140px);
+    position: relative;
+    text-align: center;
+
+    a {
+      outline: none;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      .part {
+        opacity: 0;
+        transition: $tr;
+        fill: #ff7b7b;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

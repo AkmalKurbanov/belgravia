@@ -177,8 +177,12 @@ button {
       width: rem(65px);
     }
 
-    &_light {
+    &_secondary {
       color: $wc;
+    }
+
+    &_main {
+      color: $bc;
     }
   }
 
@@ -235,11 +239,25 @@ button {
   width: 66%;
   margin: auto;
   margin-bottom: rem(55px);
+
   p {
     color: $wc;
     font-size: rem(18px);
     line-height: 1.33;
   }
+
+  &_main {
+    p {
+      color: #535353;
+    }
+  }
 }
 
 // main title end
+
+// popup
+.popup {
+   border-radius: rem(10px);
+}
+
+// popup end

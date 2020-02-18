@@ -96,13 +96,24 @@
 }
 
 .gallery-js {
-  padding-bottom: rem(60px);
+  padding-bottom: rem(80px);
 
   .swiper-pagination {
     z-index: 9999;
-    span {
+    position: absolute;
+    bottom: 0;
+
+    .swiper-pagination-bullet {
       width: rem(18px);
       height: rem(18px);
+      outline: none;
+      opacity: 1;
+      background-color: $wc;
+      margin: 0 rem(10px);
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $mc;
     }
   }
 }
