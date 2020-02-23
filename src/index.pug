@@ -2,185 +2,750 @@ extends layout/main/main
 block title
   | main
 block main  
+  include includes/preloader/preloader
+  include includes/hamburger/hamburger
 
-  include includes/header/header
-
-  //- entry
-  .entry
-    .swiper-container.entry__bg
-      .container
-        .swiper-container.entry__slider.entry-js
-          .swiper-wrapper
-            mixin entryText(name, title, desc, link)
-              .swiper-slide
-                .entry__item
-                  h2.entry__name=name
-                  h3.entry__title=title
-                  p.entry__desc=desc
-                  .btn-wrap.btn-wrap_center
-                    a(href=link).btn.btn_secondary ПОДРОБНЕЕ
-            +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ “NURZAMAN”','Жилой комплекс премиум класса “Белгравия”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.', '#')
-            +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ1 “NURZAMAN”','Жилой комплекс премиум класса “Белгравия1”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.1', '#')
-
-          .navigation
-            .prev
-              i.icon-virustotal-icon            
-            .next          
-              i.icon-virustotal-icon            
-      ul.cb-slideshow
-        mixin entryBg(img)
-          li
-            span(style="background-image: url(assets/img/entry/"+img+")")
-        +entryBg('1.jpg')
-        +entryBg('2.jpg')
-        +entryBg('1.jpg')
-        +entryBg('2.jpg')
-        +entryBg('1.jpg')
-        +entryBg('2.jpg')
-  //- entry end
-
-  //- advantage
-  .advantage
+  .sticky-header
     .container
-      .advantage__wrap
-        mixin advantage(icon, title, desc) 
-          .advantage__item
-            .advantage__icon-wrap
-              i(class=icon)
-            .advantage__title=title
-            .advantage__desc=desc
-        +advantage('icon-locked','БЕЗОПАСНОСТЬ 24/7','Покой резидента Belgravia охраняется круглосуточно.')
-        +advantage('icon-p','СОБСТВЕННАЯ ПАРКОВКА','Для авто владельцев предусмотрена удобная и просторная парковка.')
-        +advantage('icon-forest','ЛАНДШАФТНЫЙ ДИЗАЙН','К удобству жителей продумана не только архитектура, но и озеленение площадки.')
-  //- advantage end
-
-  //- about
-  .about
-    .container
-      .about__wrap
-        .about__item
-          h2.title-secondary О ПРОЕКТЕ
-          p Жилой комплекс Belgravia – Это уникальный проект премиум класса, где вы будете чувствовать себя уютно и комфортно, наслаждаясь продуманным до мелочей пространства, как внутри своей квартиры, так и снаружи. Комплекс состоит из пяти отдельных 15-этажных корпусов. Каждая квартира имеет великолепный вид на горы.
-          .about__list
-            ul
-              li 10 лет опыта  
-              li Команда профессионалов  
-              li Успешные проекты
-              li Качественные материалы  
+      .sticky-header__wrap
+        .logo
+          a(href="#top" data-scroll)
+            img(src="assets/img/logo.svg" alt="")
+        .nav    
+          include includes/nav/nav
+        .call-back
           .btn-wrap
-            a(href="#").btn.btn_hollow КОНТАКТЫ
-        .about__item
-          .about__img.img
-            .img__wrap
-              img(src="assets/img/gallery/11.jpg" alt="")
-            .img__substrate
-
-  //- about end
-
-  //- gallery
-  .gallery(style="background-image: url('assets/img/gallery/2.jpg')")
-    .container
-      include includes/main-title/title
-      +title('ГАЛЕРЕЯ','title_secondary','Пройтись в Belgravia - незабываемый опыт. И мы с удовольствием представим вам эту возможность. Пока же вы можете пройтись по комплексу виртуально. Прочувствуйте чистоту и архитектурное мастерство.')
-    .swiper-container.gallery-js
-      .swiper-wrapper
-        .swiper-slide
-          .gallery__wrap
-            mixin gallery(srcImg, nameGallery)
-              .gallery__item
-                a.gallery__img(class=visibility data-fancybox=nameGallery href=srcImg)
-                  img(src=srcImg, alt="")
-                  i.icon-plus
-            +gallery('assets/img/gallery/1.jpg', 'gallery1')
-            +gallery('assets/img/gallery/2.jpg', 'gallery1')
-            +gallery('assets/img/gallery/3.jpg', 'gallery1')
-            +gallery('assets/img/gallery/4.jpg', 'gallery1')
-            +gallery('assets/img/gallery/5.jpg', 'gallery1')
-            +gallery('assets/img/gallery/6.png', 'gallery1')
-            +gallery('assets/img/gallery/7.jpg', 'gallery1')
-            +gallery('assets/img/gallery/8.jpg', 'gallery1')
-        .swiper-slide
-          .gallery__wrap
-            +gallery('assets/img/gallery/9.jpg', 'gallery1')
-            +gallery('assets/img/gallery/10.jpg', 'gallery1')
-            +gallery('assets/img/gallery/11.jpg', 'gallery1')
-            +gallery('assets/img/gallery/4.jpg', 'gallery1')
-            +gallery('assets/img/gallery/5.jpg', 'gallery1')
-            +gallery('assets/img/gallery/6.png', 'gallery1')
-            +gallery('assets/img/gallery/7.jpg', 'gallery1')
-            +gallery('assets/img/gallery/8.jpg', 'gallery1')
-        .swiper-slide
-          .gallery__wrap
-            +gallery('assets/img/gallery/9.jpg', 'gallery1')
-            +gallery('assets/img/gallery/10.jpg', 'gallery1')
-            +gallery('assets/img/gallery/11.jpg', 'gallery1')
-            +gallery('assets/img/gallery/4.jpg', 'gallery1')
-            +gallery('assets/img/gallery/5.jpg', 'gallery1')
-            +gallery('assets/img/gallery/6.png', 'gallery1')
-            +gallery('assets/img/gallery/7.jpg', 'gallery1')
-            +gallery('assets/img/gallery/8.jpg', 'gallery1')
-      .swiper-pagination
-  //- gallery end
-
-  //- choose
-  .choose
-    .container
-      include includes/main-title/title
-      +title('ПОЧЕМУ ВЫБИРАЮТ “BELGRAVIA”','title_main','Передать престиж самого элитного района Лондона не так то и просто. Мы посвятили свои силы и труды для наилучшего результата - подарить резиденту Belgravia чувство роскоши. А для этого мы проработали многое:','sub-title_main')
-      .choose__wrap
-        mixin choose(icon, title, desc)
-          .choose__item
-            .choose__icon-wrap
-              .choose__icon
-                i(class=icon)
-            .choose__desc-wrap
-              .choose__title=title
-              .choose__desc=desc
-        +choose('icon-insurance','БЕЗОПАСНОСТЬ 24/7','Мы бережем покой наших резидентов.')
-        +choose('icon-user-profiles','ПРОФЕСС.КОМАНДА','Лучшие условия обеспечивают лучшие кадры. За качество отвечают профессионалы.')
-        +choose('icon-power','РЕЗЕРВНОЕ ЭЛЕКТРОПИТАНИЕ','Вы можете вычеркнуть из своей жизни объявления о прекращении электропередачи в городе. Наш житель снабжен бесперебойно.')
-        +choose('icon-parking','ПОДЗЕМНАЯ ПАРКОВКА','Машины защищены от воздействия солнца и других природных явлений. А воздух в комплексе не загрязняется, так как выхлопы машины выходят по вентиляции.')
-        +choose('icon-paint','СТИЛЬНЫЙ ДИЗАЙН','Мы удержали вдохновение Кьюбита, чтобы подарить нашему городу красоту Belgravia, где в свое время прошлись Моцарт, Тэтчер, Коннери и другие иконы истории.')
-        +choose('icon-muscle','СПОРТИВНАЯ ПЛОЩАДКА','Престиж без здоровья - половина успеха. В комплексе размещена площадка для поддержания формы.')
-        +choose('icon-tree','БЛАГОУСТРОЕННЫЙ ДВОР','В нашем дворе вы будете как в городке. Есть детские площадки, скамейки, ограждения, газон и деревья.')
-        +choose('icon-doors','БЕСШУМНЫЕ ЛИФТЫ','Для нашего комплекса мы привозим и устанавливаем последние выпуски ведущих марок. Вы услышите только сигнал приезда лифта.')
-        +choose('icon-shop','ОФИСЫ. ТОРГОВЫЕ ПОМЕЩЕНИЯ','Мы продумали возможность ведения бизнеса. А также удобство для жителей комплекса в виде доступности торговых помещений.')
-        +choose('icon-building','НАДЕЖНАЯ КОНСТРУКЦИЯ','Мы ведем отчеты на каждом этапе строительства, начиная с разработки котлована. Покупаем качественные материалы.')
-  //- choose end
-
-  //- plan
-  .plan(style="background-image: url(assets/img/plan/plan_bg.jpg)")
-    .container
-      include includes/main-title/title
-      +title('ПЛАНИРОВКА ТИПОВОГО ЭТАЖА','title_secondary','Ниже вы можете ознакомиться с планировкой этажа.','sub-title_secondary')
-    .plan__plan-wrap
-      .container
-        .plan__img-wrap
-          svg(viewBox="0 0 1139 360")
-            a(data-fancybox="" data-src="#blockA" href="javascript:;")
-              path.part(d="m 241.4784,121.78797 v 182.45035 l -9.3325,-0.23331 -0.23331,5.13287 h -19.59825 l -0.46662,-5.36618 h -7.93263 l 1.39988,2.79975 -11.89894,13.99874 -53.42855,0.23332 -13.53212,-16.09856 -0.46663,-34.06362 -5.5995,-0.23332 -0.46662,6.76607 -19.59825,-0.46663 -0.466626,-5.83281 -23.331246,-0.69994 -15.16531,-14.932 0.93325,-6.99937 h -5.832812 l -15.515279,-16.56519 -0.116656,-30.44727 -5.366187,-0.34997 -0.349968,-11.78228 5.716155,-0.23331 0.116656,-7.93263 -0.116656,-1.63318 -4.899562,0.11665 -0.460102,-12.27406 5.279259,-0.49493 0.164977,-29.8608 14.352983,-15.6728 6.26912,-0.16498 -0.164977,-5.27926 14.188007,-15.34284 1.979722,-1.154841 H 102.94554 V 92.90252 h 18.4774 l 0.49493,6.599073 39.75942,-0.659907 14.35298,15.672794 1.15484,0.98987 0.49493,5.44423 5.27926,0.16498 -0.16498,-7.25898 18.80736,0.16497 0.16498,7.09401 z")
-            a(data-fancybox="" data-src="#blockB" href="javascript:;")
-              path.part(d="m 243.3449,127.97075 -0.34997,176.15091 42.81284,-0.58328 0.11665,6.53275 h 18.665 l 0.93325,-0.34997 -0.11665,-5.48284 6.41609,-0.58328 0.11665,16.7985 76.29318,-0.46663 0.11666,-7.11603 5.48284,0.34997 -0.23331,6.29944 19.7149,-0.11666 0.11666,-6.29944 12.01559,0.23332 v -9.21585 l 55.1784,0.11666 v 9.09919 l 12.83218,-0.46663 -0.46662,6.29944 19.36493,0.23331 -0.69994,-6.06612 h 7.23269 l -0.69994,6.76606 76.29318,-0.23331 v -15.63194 h 6.29943 v 6.53275 l 20.29819,-0.46662 v -5.5995 h 41.99624 V 127.38747 h -46.19587 l 0.23332,-5.36618 -17.26513,-0.46663 -0.46662,6.29944 h -4.66625 l -0.23331,-11.66562 -44.796,-0.46663 -0.23331,-5.83281 -18.665,0.46662 -0.46662,6.29944 h -12.59887 l 0.69993,10.26575 -5.13287,0.46662 -0.23331,-6.53275 h -19.13162 l 0.23331,6.53275 -82.12599,0.69994 -0.23331,-7.466 -17.49844,0.93325 -0.46662,6.29944 -5.36619,-0.23331 v -11.199 H 374.4665 l -0.23331,-6.53275 -19.36493,0.46662 -0.23332,6.06613 h -42.69618 l 0.23332,10.96568 h -4.43294 l 0.23331,-6.29943 -19.36493,-0.23332 0.23331,7.23269 z")
-            a(data-fancybox="" data-src="#blockC" href="javascript:;")
-              path.part(d="m 664.59055,127.50413 0.69994,177.20082 42.46287,-0.58329 0.11665,5.94947 20.5315,-0.34997 -0.69994,-5.71615 h 5.24953 l -0.11665,16.68184 78.15967,-0.58328 -0.46662,-7.93263 35.23018,0.46663 v -8.39925 h 2.09981 v 5.83281 h 17.49844 v -6.53275 l 17.49843,0.23332 0.23331,7.69931 17.03181,-0.93325 0.23332,-6.99938 1.63318,0.23332 0.23332,9.33249 36.39674,-0.23331 v 6.99938 l 76.99316,-0.23332 -0.4667,-16.33187 34.7636,0.46663 0.4666,6.29943 19.5983,0.23332 -0.4667,-6.53275 h 15.632 l -0.4667,-176.38423 h -12.1322 v -6.99937 l -16.5652,0.46662 0.2333,6.29944 -5.5995,0.23331 -0.4666,-12.13224 h -10.0324 l -0.2333,-6.29944 h -20.0649 l -0.2333,7.466 -19.1317,-0.93325 -0.2333,-6.29944 -17.96503,-0.23331 -0.46662,6.76606 -8.86588,0.23331 -0.93325,-6.53275 -20.76481,-0.23331 0.46663,6.53275 -13.29881,0.23331 -0.23331,11.89894 -6.29944,0.93325 v -7.466 l -17.49844,-0.46663 -0.23331,6.76607 -80.72611,0.69993 v -8.16593 l -17.96506,0.93325 v 7.466 l -5.13287,-0.46663 -0.23332,-13.0655 -13.99874,-0.23331 -0.23332,-5.5995 -20.53149,-0.23331 0.46662,6.29944 -48.06237,0.93325 0.23332,-6.76607 -20.76481,-0.23331 v 6.06613 l -9.79913,0.23331 0.69994,12.36556 h -3.26637 l 0.23331,-6.76606 -16.09856,-0.23332 -0.23331,6.53275 z")
-          img(src="assets/img/plan/plantop.png" alt="")
-
-  //- plan end
-
-  //- popup-window
-  .popup(style="display: none;" id="blockA")
-    img(src="assets/img/plan/blocka.png", alt="")
-  
-  .popup(style="display: none;" id="blockB")
-    img(src="assets/img/plan/blocka.png", alt="")
-  
-  .popup(style="display: none;" id="blockC")
-    img(src="assets/img/plan/blocka.png", alt="")
-
-  //- popup-window end
+            a(data-fancybox="" data-src="#consultation" href="javascript:;").btn.btn_painted заказть звонок   
 
 
-  include includes/footer/footer
+  .mobile-menu
+    .header__top-wrap
+      .header__contat
+        p 
+          i.icon-call-answer
+          | 0(559,779,709,312) 88 11 11
+        a(href="mailto:nurzamann-mail-ru")
+          i.icon-mail
+          | nurzamann-mail-ru 
+      include includes/social/social
+    include includes/nav/nav
+  .wrapper
+    .content 
+      include includes/header/header
+      //- entry
+      .entry
+        .swiper-container.entry__bg
+          .container
+            .swiper-container.entry__slider.entry-js
+              .swiper-wrapper
+                mixin entryText(name, title, desc, link)
+                  .swiper-slide
+                    .entry__item.wow.slideInDown
+                      h2.entry__name=name
+                      h3.entry__title=title
+                      p.entry__desc=desc
+                      .btn-wrap.btn-wrap_center
+                        a(href=link).btn.btn_secondary бесплатная консультация
+                +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ “NURZAMAN”','Жилой комплекс премиум класса “Белгравия”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.', '#')
+                +entryText('СТРОИТЕЛЬНАЯ КОМПАНИЯ “NURZAMAN”','Жилой комплекс премиум класса “Белгравия”','Самый элитный район Лондона в Бишкеке! Мы передадим ту же эксклюзивность и престижность. Представляем вам совершенно новый образ жизни.', '#')
+
+              .navigation
+                .prev
+                  i.icon-virustotal-icon            
+                .next          
+                  i.icon-virustotal-icon            
+          ul.cb-slideshow
+            mixin entryBg(img)
+              li
+                span(style="background-image: url(assets/img/entry/"+img+")")
+            +entryBg('1.jpg')
+            +entryBg('2.jpg')
+            +entryBg('1.jpg')
+            +entryBg('2.jpg')
+            +entryBg('1.jpg')
+            +entryBg('2.jpg')
+      //- entry end
+
+      //- advantage
+      .advantage
+        .container
+          .advantage__wrap
+            mixin advantage(icon, title, desc,animate,duration) 
+              .advantage__item(class=animate data-wow-duration=duration)
+                .advantage__icon-wrap
+                  i(class=icon)
+                .advantage__title=title
+                .advantage__desc=desc
+            +advantage('icon-locked','БЕЗОПАСНОСТЬ 24/7','Покой резидента Belgravia охраняется круглосуточно.','wow bounceInDown','0.5s')
+            +advantage('icon-p','СОБСТВЕННАЯ ПАРКОВКА','Для авто владельцев предусмотрена удобная и просторная парковка.','wow bounceInDown','1s')
+            +advantage('icon-forest','ЛАНДШАФТНЫЙ ДИЗАЙН','К удобству жителей продумана не только архитектура, но и озеленение площадки.','wow bounceInDown','1.5s')
+      //- advantage end
+
+      //- about
+      .about#about
+        .container
+          .about__wrap
+            .about__item.wow.fadeInDown(data-wow-duration="1s")
+              h2.title-secondary О ПРОЕКТЕ
+              p Жилой комплекс Belgravia – Это уникальный проект премиум класса, где вы будете чувствовать себя уютно и комфортно, наслаждаясь продуманным до мелочей пространства, как внутри своей квартиры, так и снаружи. Комплекс состоит из пяти отдельных 15-этажных корпусов. Каждая квартира имеет великолепный вид на горы.
+              .about__list
+                ul
+                  li 10 лет опыта  
+                  li Команда профессионалов  
+                  li Успешные проекты
+                  li Качественные материалы  
+              .btn-wrap
+                a(href="#").btn.btn_hollow КОНТАКТЫ
+            .about__item
+              .about__img.img.wow.bounceInRight(data-wow-duration="1s")
+                .img__wrap
+                  img(src="assets/img/gallery/11.jpg" alt="")
+                  .img__substrate.wow.bounceInRight(data-wow-duration="3s")
+
+      //- about end
+
+      //- gallery
+      .gallery(style="background-image: url('assets/img/gallery/2.jpg')" id="gallery")
+        .container
+          include includes/main-title/title
+          +title('ГАЛЕРЕЯ','title_secondary','Пройтись в Belgravia - незабываемый опыт. И мы с удовольствием представим вам эту возможность. Пока же вы можете пройтись по комплексу виртуально. Прочувствуйте чистоту и архитектурное мастерство.')
+        .swiper-container.gallery-js
+          .swiper-wrapper
+            .swiper-slide
+              .gallery__wrap
+                mixin gallery(srcImg, nameGallery,animate,duration)
+                  .gallery__item.wow(class=animate data-wow-duration=duration)
+                    a.gallery__img(class=visibility data-fancybox=nameGallery href=srcImg)
+                      img(src=srcImg, alt="")
+                      i.icon-plus
+                +gallery('assets/img/gallery/1.jpg', 'gallery1','bounceInLeft','0.5s')
+                +gallery('assets/img/gallery/2.jpg', 'gallery1','bounceInDown','1s')
+                +gallery('assets/img/gallery/3.jpg', 'gallery1','bounceInDown','1.5s')
+                +gallery('assets/img/gallery/4.jpg', 'gallery1','bounceInRight','0.5s')
+                +gallery('assets/img/gallery/5.jpg', 'gallery1','bounceInLeft','1s')
+                +gallery('assets/img/gallery/6.jpg', 'gallery1','bounceInUp','1s')
+                +gallery('assets/img/gallery/7.jpg', 'gallery1','bounceInUp','1.5s')
+                +gallery('assets/img/gallery/8.jpg', 'gallery1','bounceInRight','1.5s')
+            .swiper-slide
+              .gallery__wrap
+                +gallery('assets/img/gallery/9.jpg', 'gallery1')
+                +gallery('assets/img/gallery/10.jpg', 'gallery1')
+                +gallery('assets/img/gallery/11.jpg', 'gallery1')
+                +gallery('assets/img/gallery/4.jpg', 'gallery1')
+                +gallery('assets/img/gallery/5.jpg', 'gallery1')
+                +gallery('assets/img/gallery/6.jpg', 'gallery1')
+                +gallery('assets/img/gallery/7.jpg', 'gallery1')
+                +gallery('assets/img/gallery/8.jpg', 'gallery1')
+            .swiper-slide
+              .gallery__wrap
+                +gallery('assets/img/gallery/9.jpg', 'gallery1')
+                +gallery('assets/img/gallery/10.jpg', 'gallery1')
+                +gallery('assets/img/gallery/11.jpg', 'gallery1')
+                +gallery('assets/img/gallery/4.jpg', 'gallery1')
+                +gallery('assets/img/gallery/5.jpg', 'gallery1')
+                +gallery('assets/img/gallery/6.jpg', 'gallery1')
+                +gallery('assets/img/gallery/7.jpg', 'gallery1')
+                +gallery('assets/img/gallery/8.jpg', 'gallery1')
+          .swiper-pagination
+      //- gallery end
+
+      //- choose
+      .choose#advantages
+        .container
+          include includes/main-title/title
+          +title('ПОЧЕМУ ВЫБИРАЮТ “BELGRAVIA”','title_main','Передать престиж самого элитного района Лондона не так то и просто. Мы посвятили свои силы и труды для наилучшего результата - подарить резиденту Belgravia чувство роскоши. А для этого мы проработали многое:','sub-title_main')
+          .choose__wrap
+            mixin choose(icon, title, desc,animate,duration)
+              .choose__item.wow(data-wow-duration=duration class=animate)
+                .choose__item-wrap
+                  .choose__icon-wrap
+                    .choose__icon
+                      i(class=icon)
+                  .choose__desc-wrap
+                    .choose__title=title
+                    .choose__desc=desc
+            +choose('icon-insurance','БЕЗОПАСНОСТЬ 24/7','Мы бережем покой наших резидентов.','slideInLeft','0.6s')
+            +choose('icon-user-profiles','ПРОФЕСС.КОМАНДА','Лучшие условия обеспечивают лучшие кадры. За качество отвечают профессионалы.','slideInRight','0.6s')
+            +choose('icon-power','РЕЗЕРВНОЕ ЭЛЕКТРОПИТАНИЕ','Вы можете вычеркнуть из своей жизни объявления о прекращении электропередачи в городе. Наш житель снабжен бесперебойно.','slideInLeft','0.7s')
+            +choose('icon-parking','ПОДЗЕМНАЯ ПАРКОВКА','Машины защищены от воздействия солнца и других природных явлений. А воздух в комплексе не загрязняется, так как выхлопы машины выходят по вентиляции.','slideInRight','0.7s')
+            +choose('icon-paint','СТИЛЬНЫЙ ДИЗАЙН','Мы удержали вдохновение Кьюбита, чтобы подарить нашему городу красоту Belgravia, где в свое время прошлись Моцарт, Тэтчер, Коннери и другие иконы истории.','slideInLeft','0.8s')
+            +choose('icon-muscle','СПОРТИВНАЯ ПЛОЩАДКА','Престиж без здоровья - половина успеха. В комплексе размещена площадка для поддержания формы.','slideInRight','0.8s')
+            +choose('icon-tree','БЛАГОУСТРОЕННЫЙ ДВОР','В нашем дворе вы будете как в городке. Есть детские площадки, скамейки, ограждения, газон и деревья.','slideInLeft','0.9s')
+            +choose('icon-doors','БЕСШУМНЫЕ ЛИФТЫ','Для нашего комплекса мы привозим и устанавливаем последние выпуски ведущих марок. Вы услышите только сигнал приезда лифта.','slideInRight','0.9s')
+            +choose('icon-shop','ОФИСЫ. ТОРГОВЫЕ ПОМЕЩЕНИЯ','Мы продумали возможность ведения бизнеса. А также удобство для жителей комплекса в виде доступности торговых помещений.','slideInLeft','1s')
+            +choose('icon-building','НАДЕЖНАЯ КОНСТРУКЦИЯ','Мы ведем отчеты на каждом этапе строительства, начиная с разработки котлована. Покупаем качественные материалы.','slideInRight','1s')
+      //- choose end
+
+      //- plan
+      .plan(style="background-image: url(assets/img/plan/plan_bg.jpg)" id="objects")
+        .container
+          include includes/main-title/title
+          +title('ПЛАНИРОВКА ТИПОВОГО ЭТАЖА','title_secondary','Ниже вы можете ознакомиться с планировкой этажа.','sub-title_secondary')
+        .plan__plan-wrap.wow.fadeIn(data-wow-duration="1s")
+          .container
+            .plan__img-wrap
+              svg(viewBox="0 0 1139 360")
+                a(data-fancybox="" data-src="#blockA" href="javascript:;")
+                  path.part(d="m 241.4784,121.78797 v 182.45035 l -9.3325,-0.23331 -0.23331,5.13287 h -19.59825 l -0.46662,-5.36618 h -7.93263 l 1.39988,2.79975 -11.89894,13.99874 -53.42855,0.23332 -13.53212,-16.09856 -0.46663,-34.06362 -5.5995,-0.23332 -0.46662,6.76607 -19.59825,-0.46663 -0.466626,-5.83281 -23.331246,-0.69994 -15.16531,-14.932 0.93325,-6.99937 h -5.832812 l -15.515279,-16.56519 -0.116656,-30.44727 -5.366187,-0.34997 -0.349968,-11.78228 5.716155,-0.23331 0.116656,-7.93263 -0.116656,-1.63318 -4.899562,0.11665 -0.460102,-12.27406 5.279259,-0.49493 0.164977,-29.8608 14.352983,-15.6728 6.26912,-0.16498 -0.164977,-5.27926 14.188007,-15.34284 1.979722,-1.154841 H 102.94554 V 92.90252 h 18.4774 l 0.49493,6.599073 39.75942,-0.659907 14.35298,15.672794 1.15484,0.98987 0.49493,5.44423 5.27926,0.16498 -0.16498,-7.25898 18.80736,0.16497 0.16498,7.09401 z")
+                a(data-fancybox="" data-src="#blockB" href="javascript:;")
+                  path.part(d="m 243.3449,127.97075 -0.34997,176.15091 42.81284,-0.58328 0.11665,6.53275 h 18.665 l 0.93325,-0.34997 -0.11665,-5.48284 6.41609,-0.58328 0.11665,16.7985 76.29318,-0.46663 0.11666,-7.11603 5.48284,0.34997 -0.23331,6.29944 19.7149,-0.11666 0.11666,-6.29944 12.01559,0.23332 v -9.21585 l 55.1784,0.11666 v 9.09919 l 12.83218,-0.46663 -0.46662,6.29944 19.36493,0.23331 -0.69994,-6.06612 h 7.23269 l -0.69994,6.76606 76.29318,-0.23331 v -15.63194 h 6.29943 v 6.53275 l 20.29819,-0.46662 v -5.5995 h 41.99624 V 127.38747 h -46.19587 l 0.23332,-5.36618 -17.26513,-0.46663 -0.46662,6.29944 h -4.66625 l -0.23331,-11.66562 -44.796,-0.46663 -0.23331,-5.83281 -18.665,0.46662 -0.46662,6.29944 h -12.59887 l 0.69993,10.26575 -5.13287,0.46662 -0.23331,-6.53275 h -19.13162 l 0.23331,6.53275 -82.12599,0.69994 -0.23331,-7.466 -17.49844,0.93325 -0.46662,6.29944 -5.36619,-0.23331 v -11.199 H 374.4665 l -0.23331,-6.53275 -19.36493,0.46662 -0.23332,6.06613 h -42.69618 l 0.23332,10.96568 h -4.43294 l 0.23331,-6.29943 -19.36493,-0.23332 0.23331,7.23269 z")
+                a(data-fancybox="" data-src="#blockC" href="javascript:;")
+                  path.part(d="m 664.59055,127.50413 0.69994,177.20082 42.46287,-0.58329 0.11665,5.94947 20.5315,-0.34997 -0.69994,-5.71615 h 5.24953 l -0.11665,16.68184 78.15967,-0.58328 -0.46662,-7.93263 35.23018,0.46663 v -8.39925 h 2.09981 v 5.83281 h 17.49844 v -6.53275 l 17.49843,0.23332 0.23331,7.69931 17.03181,-0.93325 0.23332,-6.99938 1.63318,0.23332 0.23332,9.33249 36.39674,-0.23331 v 6.99938 l 76.99316,-0.23332 -0.4667,-16.33187 34.7636,0.46663 0.4666,6.29943 19.5983,0.23332 -0.4667,-6.53275 h 15.632 l -0.4667,-176.38423 h -12.1322 v -6.99937 l -16.5652,0.46662 0.2333,6.29944 -5.5995,0.23331 -0.4666,-12.13224 h -10.0324 l -0.2333,-6.29944 h -20.0649 l -0.2333,7.466 -19.1317,-0.93325 -0.2333,-6.29944 -17.96503,-0.23331 -0.46662,6.76606 -8.86588,0.23331 -0.93325,-6.53275 -20.76481,-0.23331 0.46663,6.53275 -13.29881,0.23331 -0.23331,11.89894 -6.29944,0.93325 v -7.466 l -17.49844,-0.46663 -0.23331,6.76607 -80.72611,0.69993 v -8.16593 l -17.96506,0.93325 v 7.466 l -5.13287,-0.46663 -0.23332,-13.0655 -13.99874,-0.23331 -0.23332,-5.5995 -20.53149,-0.23331 0.46662,6.29944 -48.06237,0.93325 0.23332,-6.76607 -20.76481,-0.23331 v 6.06613 l -9.79913,0.23331 0.69994,12.36556 h -3.26637 l 0.23331,-6.76606 -16.09856,-0.23332 -0.23331,6.53275 z")
+              img(src="assets/img/plan/plantop.png" alt="")
+        .plan__plan-wrap.wow.fadeIn(data-wow-duration="2s")
+          .container
+
+
+
+
+            #parent.blocks
+              ul.tabs
+                li.tabs__item.btn-wrap
+                  a(href='#parent-1').btn.btn_hollow Блок А
+                li.tabs__item.btn-wrap
+                  a(href='#parent-2').btn.btn_hollow Блок Б
+                li.tabs__item.btn-wrap
+                  a(href='#parent-3').btn.btn_hollow Блок В
+
+
+              #parent-1
+                .blocks__wrap
+                  .blocks__img
+                    img(src="assets/img/plan/blocka.png" alt="")
+                #child.tabs__wrap
+                  ul.tabs
+                    li.tabs__item.btn-wrap
+                      a(href='#child-1').btn.btn_hollow 2 комн.кв
+                    li.tabs__item.btn-wrap
+                      a(href='#child-2').btn.btn_hollow 4 комн.кв
+
+
+
+                  #child-1.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin twoRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +twoRoom('assets/img/plan/2a1.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +twoRoom('assets/img/plan/2a2.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +twoRoom('assets/img/plan/2a3.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |2-А
+
+
+
+                  #child-2.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin fourRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+                          +fourRoom('assets/img/plan/4a1.jpg','4 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +fourRoom('assets/img/plan/4a2.jpg','4 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |4-А
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              #parent-2
+                .blocks__wrap
+                  .blocks__img
+                    img(src="assets/img/plan/blockb.png" alt="")
+                #child.tabs__wrap
+                  ul.tabs
+                    li.tabs__item.btn-wrap
+                      a(href='#child-1').btn.btn_hollow 1 комн.кв
+                    li.tabs__item.btn-wrap
+                      a(href='#child-2').btn.btn_hollow 3 комн.кв
+
+
+                  #child-1.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin oneRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +oneRoom('assets/img/plan/1a1.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +oneRoom('assets/img/plan/1a2.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +oneRoom('assets/img/plan/1a3.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |1-А
+
+
+                  #child-2.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin threeRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +threeRoom('assets/img/plan/3a1.jpg','3 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +threeRoom('assets/img/plan/3a2.jpg','3 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |3-А
+
+
+
+
+
+
+
+
+
+
+
+              #parent-3
+                .blocks__wrap
+                  .blocks__img
+                    img(src="assets/img/plan/blockv.png" alt="")
+                #child.tabs__wrap
+                  ul.tabs
+                    li.tabs__item.btn-wrap
+                      a(href='#child-1').btn.btn_hollow 1 комн.кв
+                    li.tabs__item.btn-wrap
+                      a(href='#child-2').btn.btn_hollow 2 комн.кв
+                    li.tabs__item.btn-wrap
+                      a(href='#child-3').btn.btn_hollow 3 комн.кв
+                    li.tabs__item.btn-wrap
+                      a(href='#child-4').btn.btn_hollow 4 комн.кв
+
+
+                  #child-1.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin oneRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +oneRoom('assets/img/plan/1a1.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +oneRoom('assets/img/plan/1a2.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +oneRoom('assets/img/plan/1a3.jpg','1 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |1-А
+
+
+                  #child-2.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin twoRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +twoRoom('assets/img/plan/2a1.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +twoRoom('assets/img/plan/2a2.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +twoRoom('assets/img/plan/2a3.jpg','2 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |2-А
+
+
+
+
+
+                  #child-3.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin threeRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +threeRoom('assets/img/plan/3a1.jpg','3 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +threeRoom('assets/img/plan/3a2.jpg','3 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |3-А
+
+
+                  #child-4.blocks__detail
+                    .blocks__item
+                      .swiper-container.plan-js
+                        .swiper-wrapper
+                          mixin fourRoom(img,title,desc)
+                            .swiper-slide
+                              .blocks__slider-wrap
+                                .blocks__slider-img
+                                  img(src=img alt="")
+                                .blocks__slider-title=title
+                                .blocks__slider-desc=desc
+
+                          +fourRoom('assets/img/plan/4a1.jpg','4 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                          +fourRoom('assets/img/plan/4a2.jpg','4 комнатная квартира','Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов.')
+                        .navigation
+                          .prev
+                            i.icon-virustotal-icon
+                          .next
+                            i.icon-virustotal-icon
+                    .blocks__item.blocks__item_about
+                      .blocks__about-list
+                        ul
+
+                          li Холл- 10,24 м 
+                            sup 2
+                          li Кухня- 20,45 м
+                            sup 2
+                          li Сан узел- 8,5 м
+                            sup 2
+                          li Ванная- 10,14 м
+                            sup 2
+                          li Гостинная- 25,34 м
+                            sup 2
+                          li ИТОГО- 76,45 м 
+                            sup 2
+                      .blocks__about-title
+                        |4-А
+
+
+
+
+
+
+
+
+
+
+      //- plan end
+
+
+      //- parking
+      .parking
+        .container
+          include includes/main-title/title
+          +title('ПОДЗЕМНАЯ ПАРКОВКА','title_main','Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.','sub-title_main')
+        .parking__wrap.parking__wrap_first.wow.fadeIn(data-wow-duration="1s")
+          .container
+            .parking__img
+              img(src="assets/img/parking/1.png" alt="")
+            .parking__desc
+              .parking__item-desc
+                h2 Паркинг (-1 этаж)
+                p  Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.          
+              .parking__item-img
+                img(src="assets/img/parking/car1.png" alt="")
+              .parking__places
+                | 51
+        .parking__wrap.wow.fadeIn(data-wow-duration="2s")
+          .container
+            .parking__img
+              img(src="assets/img/parking/1.png" alt="")
+            .parking__desc.parking__desc_revert
+              .parking__item-desc
+                h2 Паркинг (-2 этаж)
+                p  Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.          
+              .parking__item-img
+                img(src="assets/img/parking/car1.png" alt="")
+              .parking__places
+                | 49
+      //- parking end
+
+      //- contacts
+      .contacts#contacts
+        .container
+          h2.title-secondary.wow.fadeInDown КОНТАКТЫ
+          .contacts__wrap
+            .contacts__basis
+              .contacts__item-wrap.contacts__item-wrap_contacts.wow.slideInLeft
+                .contacts__item
+                  i.icon-phone-call
+                  ul
+                    li
+                      a(href="tel:+996779881111") +996 779 88 11 11
+                    li
+                      a(href="tel:+996559881111") +996 559 88 11 11
+                    li
+                      a(href="tel:+996709881111") +996 709 88 11 11
+                .contacts__item
+                  i.icon-mail-1
+                  a(href="mailto:nurzamann@mail.ru") nurzamann@mail.ru
+
+                .contacts__item
+                  i.icon-pin
+                  p
+                    | г. Бишкек, ул. Токтогула 125/1 
+                    | Бизнес-центр «Авангард» — 9-этаж
+
+                .contacts__item
+                  i.icon-time
+                  p
+                    | Пн.–Пт: с <span>8:30</span> до <span>19:00</span> <br>
+                    | Суббота: с <span>8:30</span> до <span>19:00</span>  <br>
+                    | Воскресенье: выходной
+            .contacts__basis
+              .contacts__item-wrap
+                form(method="post" class="form")
+
+                  input(type="hidden" name="project_name" value="Site Name")
+                  input(type="hidden" name="admin_email" value="250296a@gmail.com")
+                  input(type="hidden" name="form_subject" value="Form Subject")
+
+                  .form-group
+                    .form-group__field.wow.bounceInRight(data-wow-duration="0.9s")
+                      input(type="text" placeholder="Как Вас зовут?" name="Ф.И.О")
+                    .form-group__field.wow.bounceInRight(data-wow-duration="1s")
+                      input(type="text" placeholder="Ваш номер телефона" name="Номер телефона" class="phone-js")
+                    .form-group__field.wow.bounceInRight(data-wow-duration="1.1s") 
+                      input(type="text" placeholder="Ваш email" name="Email")
+                    .form-group__field.form-group__field_textarea.wow.bounceIn(data-wow-duration="1.2s") 
+                      textarea(placeholder="Чем мы можем помочь?" name="Message")
+                  .btn-wrap.btn-wrap_right.wow.bounceIn
+                    button(type="submit").btn.btn_painted ОТПРАВИТЬ 
+      //- contacts end
+
+
+      //- map
+      .map
+        .container
+          .map__wrap.wow.bounceIn
+            #map
+
+
+      //- map end
+
+      //- popup-window
+      .popup(style="display: none;" id="blockA")
+        img(src="assets/img/plan/blocka.png" alt="")
+
+      .popup(style="display: none;" id="blockB")
+        img(src="assets/img/plan/blockb.png" alt="")
+
+      .popup(style="display: none;" id="blockC")
+        img(src="assets/img/plan/blockv.png" alt="")
+
+      .popup.popup_consultation(style="display: none;" id="consultation")
+        .logo
+          img(src="assets/img/logo.svg" alt="")
+        form(method="post" class="form")
+
+          input(type="hidden" name="project_name" value="Site Name")
+          input(type="hidden" name="admin_email" value="250296a@gmail.com")
+          input(type="hidden" name="form_subject" value="Form Subject")
+
+          .form-group
+            .form-group__field
+              input(type="text" placeholder="Как Вас зовут?" name="Ф.И.О")
+            .form-group__field
+              input(class="phone-js" type="text" placeholder="Ваш номер телефона" name="Номер телефона" inputmode="text")
+            .btn-wrap.btn-wrap_center 
+              button(type="submit").btn.btn_painted
+                | отправить
+            .popup__addional-info Оставьте номер и мы Вам позвоним!
+
+      .popup-wrap
+        .success
+          .success__icon
+            i.icon-correct
+          h2 Спасибо, ваша заявка принята! 
+          p Мы свяжемся с вами в ближайшее время
+
+
+      //- popup-window end
+
+
+    include includes/footer/footer
 
 
   include includes/scripts 
+
+
+
+

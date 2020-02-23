@@ -10,6 +10,11 @@ body {
   font-family: $releway;
 }
 
+.body-scroll {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 a {
   text-decoration: none;
   transition: $tr;
@@ -41,6 +46,7 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  overflow: hidden;
 
   .content {
     flex: 1 0 auto;
@@ -63,15 +69,15 @@ button {
   box-sizing: border-box;
 
   @include lg {
-    max-width: rem(960px);
+    max-width: rem(1150px);
   }
 
   @include md {
-    max-width: rem(720px);
+    max-width: rem(960px);
   }
 
   @include sm {
-    max-width: rem(540px);
+    max-width: rem(760px);
   }
 
   @include xs {
@@ -82,10 +88,29 @@ button {
 
 // container end
 
+// logo
+.logo {
+  max-width: rem(100px);
+  width: 100%;
 
+  a {
+    display: flex;
+  }
+
+  svg,
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+// logo end
 
 // social
 .social {
+  display: flex;
+  align-items: center;
+
   ul {
     display: flex;
     flex-direction: row;
@@ -122,26 +147,61 @@ button {
     padding: rem(11px) rem(29px);
     border-radius: rem(5px);
     display: inline-flex;
+    cursor: pointer;
+    transition: $tr;
+
+    @include sm {
+      font-size: rem(16px);
+      padding: rem(10px) rem(20px);
+    }
+
+    @include xs {
+      font-size: rem(15px);
+    }
 
     &_painted {
+      border: rem(1px) solid $mc;
       background-color: $mc;
       color: $wc;
+
+      &:hover {
+        background-color: transparent;
+        color: $mc;
+      }
     }
 
     &_secondary {
       background-color: $wc;
       color: #38414a;
-    }
-
-    &_hollow {
-      background-color: transparent;
-      border: rem(1px) solid $mc;
 
       &:hover {
         background-color: $mc;
         color: $wc;
       }
     }
+
+    &_hollow {
+      background-color: transparent;
+      border: rem(1px) solid $mc;
+      color: #232323;
+
+      &:hover {
+        background-color: $mc;
+        color: $wc;
+      }
+    }
+  }
+
+  &_left {
+    text-align: left;
+  }
+
+  &_center {
+    text-align: center;
+  }
+
+  &_right {
+    text-align: right;
   }
 }
 
@@ -169,13 +229,23 @@ button {
     position: relative;
     margin-bottom: rem(20px);
 
-    &:before,
-    &:after {
-      position: absolute;
-      content: '';
-      height: rem(1px);
-      width: rem(65px);
+    @include lg {
+      font-size: rem(25px);
     }
+
+    @include md {
+      font-size: rem(23px);
+    }
+
+    @include sm {
+      font-size: rem(20px);
+    }
+
+    @include xs {
+      font-size: rem(18px);
+    }
+
+
 
     &_secondary {
       color: $wc;
@@ -240,10 +310,23 @@ button {
   margin: auto;
   margin-bottom: rem(55px);
 
+  @include sm {
+    width: 80%;
+    margin-bottom: rem(35px);
+  }
+
+  @include xs {
+    width: 100%;
+  }
+
   p {
     color: $wc;
     font-size: rem(18px);
     line-height: 1.33;
+
+    @include md {
+      font-size: rem(16px);
+    }
   }
 
   &_main {
@@ -257,7 +340,108 @@ button {
 
 // popup
 .popup {
-   border-radius: rem(10px);
+  border-radius: rem(10px);
+
+  .logo {
+    margin: auto;
+    margin-bottom: rem(23px);
+  }
+
+  .form-group {
+    max-width: rem(340px);
+    width: 100%;
+    margin: auto;
+  }
+
+  &__addional-info {
+    color: #374049;
+    letter-spacing: 0.4px;
+    text-align: center;
+    margin-top: rem(35px);
+
+    @include md {
+      margin-top: rem(30px);
+    }
+
+    @include sm {
+      margin-top: rem(25px);
+    }
+
+    @include sm {
+      margin-top: rem(15px);
+    }
+  }
+
+  &_consultation {
+    max-width: rem(650px);
+    width: 100%;
+  }
+}
+
+.fancybox-content {
+  padding: rem(30px) rem(15px);
+}
+
+.fancybox-container {
+  z-index: 9999999999999999;
+}
+
+.popup-wrap {
+  background-color: rgba($bc, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999999;
+  padding: 0 rem(10px);
+  display: none;
+
+  .success {
+    padding: rem(60px) rem(30px);
+    background-color: $wc;
+    border-radius: rem(10px);
+    text-align: center;
+    min-height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    @include xs {
+      padding: rem(30px) rem(15px);
+    }
+
+    &__icon {
+      font-size: rem(100px);
+      color: #57c757;
+      margin-bottom: rem(30px);
+
+      @include xs {
+        font-size: rem(70px);
+        margin-bottom: rem(10px);
+      }
+    }
+
+    h2 {
+      font-size: rem(30px);
+      margin-bottom: rem(10px);
+      color: $mc;
+
+      @include xs {
+        font-size: rem(20px);
+      }
+    }
+
+    p {
+      font-size: rem(16px);
+      color: $txtcolor;
+    }
+  }
 }
 
 // popup end

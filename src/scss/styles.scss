@@ -9,6 +9,7 @@
 @import "../../node_modules/normalize.css/normalize.css";
 @import "../../node_modules/swiper/css/swiper.min.css";
 @import "../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css";
+@import "../..//node_modules/wowjs/css/libs/animate.css";
 //---------------------------------------------
 
 // подключение сгенерированных иконок(fontello),
@@ -34,10 +35,15 @@
 
 @import "components/base";
 @import "components/header";
+@import "components/hamburger/hamburger";
+@import "components/preloader/preloader";
 @import "components/entry/entry";
 @import "components/advantage/advantage";
 @import "components/about/about";
 @import "components/gallery/gallery";
 @import "components/choose/choose";
 @import "components/plan/plan";
+@import "components/parking/parking";
+@import "components/contacts/contacts";
+@import "components/map/map";
 @import "components/footer";

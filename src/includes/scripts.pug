@@ -1,3 +1,21 @@
+
 script(src="assets/scripts.min.js")
+script(type='text/javascript').
+  var map;
+  
+  DG.then(function () {
+  map = DG.map('map', {
+  center: [42.872805, 74.597404],
+  zoom: 17
+  });
+  var myIcon = L.icon({
+  iconUrl: '../assets/img/mark.png',
+  iconSize: [70, 70],
+  });
+  DG.marker([42.872905, 74.597404],{icon: myIcon}).addTo(map).bindPopup('г. Бишкек, ул. Токтогула 125/1 Бизнес-центр «Авангард» — 9-этаж');
+  
+  });
+script(src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js")
+
 
 

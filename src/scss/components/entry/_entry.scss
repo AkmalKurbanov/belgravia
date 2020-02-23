@@ -6,6 +6,26 @@
     align-items: center;
     justify-content: center;
 
+    @include lg {
+      min-height: rem(600px);
+    }
+
+    @include md {
+      min-height: rem(500px);
+    }
+
+    @include sm {
+      min-height: rem(450px);
+    }
+
+    @include xs {
+      padding: rem(30px) 0;
+      min-height: auto;
+      min-height: rem(400px);
+    }
+
+
+
     .cb-slideshow {
       list-style-type: none;
       padding: 0;
@@ -136,6 +156,8 @@
 
   &__item {
     text-align: center;
+
+
   }
 
   &__slider {
@@ -143,6 +165,22 @@
     z-index: 9999;
     color: $wc;
     margin-top: rem(-125px);
+
+    @include lg {
+      margin-top: rem(-90px);
+    }
+
+    @include md {
+      margin-top: rem(-50px);
+    }
+
+    @include sm {
+      margin-top: rem(-30px);
+    }
+
+    @include xs {
+      margin-top: 0;
+    }
   }
 
   &__name {
@@ -150,6 +188,20 @@
     font-weight: 400;
     line-height: 2.67;
     letter-spacing: 3.6px;
+
+    @include lg {
+      font-size: rem(16px);
+    }
+
+    @include md {
+      font-size: rem(15px);
+    }
+
+    @include sm {
+      letter-spacing: normal;
+      line-height: normal;
+      margin-bottom: rem(10px);
+    }
   }
 
   &__title {
@@ -160,7 +212,24 @@
     position: relative;
     display: inline-block;
     padding: rem(15px) 0 rem(13px);
-    margin-bottom: 20px;
+    margin-bottom: rem(20px);
+
+    @include lg {
+      font-size: rem(25px);
+      padding: rem(13px) 0 rem(11px);
+      margin-bottom: rem(15px);
+    }
+
+    @include md {
+      font-size: rem(20px);
+      padding: rem(10px) 0 rem(8px);
+      margin-bottom: rem(10px);
+    }
+
+    @include sm {
+      font-size: rem(18px);
+    }
+
 
     &:before,
     &:after {
@@ -191,5 +260,58 @@
     width: 100%;
     margin: auto;
     margin-bottom: rem(35px);
+    box-sizing: border-box;
+    padding: 0 rem(40px);
+
+    @include md {
+      font-size: rem(14px);
+    }
+
+    @include xs {
+      min-width: 100%;
+      padding: 0;
+    }
+
+  }
+}
+
+.entry-js {
+  .navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    z-index: 9;
+    width: 100%;
+
+    @include xs {
+      display: none;
+    }
+  }
+
+  .prev {
+    i {
+      transform: rotate(180deg);
+      position: absolute;
+    }
+  }
+
+  .prev,
+  .next {
+    cursor: pointer;
+    width: rem(40px);
+    height: rem(40px);
+    border-radius: 100%;
+    background-color: rgba($wc, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: $wc;
+    }
   }
 }

@@ -1,3 +1,73 @@
 .footer {
   flex: 0 0 auto;
+  background-color: #212121;
+
+  &__wrap {
+    padding: rem(10px) 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include xs {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+
+
+  .nav {
+    margin-right: 0;
+
+    @include xs {
+      margin: rem(30px) 0;
+    }
+
+    ul {
+      @include md {
+        display: block;
+        column-count: 2;
+
+        li {
+          margin-bottom: rem(10px);
+
+          &:nth-child(2n) {
+            margin-right: 0;
+          }
+
+          a {
+            font-size: rem(14px);
+          }
+        }
+      }
+    }
+
+    a {
+      color: $wc;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    @include md {
+      max-width: rem(70px);
+    }
+
+    @include xs {
+      max-width: rem(100px);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba($wc, .2);
+    padding: rem(15px) 0;
+    color: #a0a0a0;
+    font-family: $roboto;
+    text-align: center;
+  }
 }

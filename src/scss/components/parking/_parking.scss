@@ -1,0 +1,172 @@
+.parking {
+  padding: rem(60px) 0 0;
+
+  @include lg {
+    padding: rem(50px) 0 0;
+  }
+
+  @include md {
+    padding: rem(40px) 0 0;
+  }
+
+  @include sm {
+    padding: rem(30px) 0 0;
+  }
+
+  @include xs {
+    padding: rem(20px) 0 0;
+  }
+
+
+  &__wrap {
+    border-bottom: rem(1px) solid rgba(0, 1, 5, 0.08);
+    padding: rem(50px) 0;
+
+    @include xs {
+      padding: rem(30px) 0;
+    }
+
+    &_first {
+      padding-top: 0;
+    }
+  }
+
+  &__img {
+    margin-bottom: rem(40px);
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: row;
+    padding: rem(30px);
+    border: rem(2px) solid rgba(#ccc, .3);
+    border-radius: rem(10px);
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    min-height: rem(390px);
+
+    @include sm {
+      min-height: rem(300px);
+    }
+
+    @include xs {
+      padding: rem(30px) rem(15px);
+      min-height: auto;
+    }
+
+    &_revert {
+      flex-direction: row-reverse;
+
+
+
+      .parking__item-desc {
+        padding-right: 0;
+        padding-left: rem(50px);
+
+        @include sm {
+          flex-basis: 100%;
+          padding-left: 0;
+        }
+      }
+
+      .parking__places {
+        left: rem(30px);
+
+        @include sm {
+          right: rem(30px);
+          left: auto;
+        }
+
+        @include xs {
+          top: rem(5px);
+          right: rem(5px);
+        }
+      }
+    }
+  }
+
+  &__item-desc {
+    flex-basis: 50%;
+    padding-right: rem(50px);
+
+    @include sm {
+      flex-basis: 100%;
+      padding: 0;
+    }
+
+    h2 {
+      font-weight: 500;
+      margin-bottom: rem(30px);
+      font-size: rem(24px);
+
+      @include sm {
+        font-size: rem(20px);
+        margin-bottom: rem(15px);
+        padding-right: rem(35px);
+      }
+    }
+
+    p {
+      font-size: rem(18px);
+      color: #8b8b8b;
+      line-height: 1.33;
+
+      @include sm {
+        font-size: rem(16px);
+        line-height: 1.2;
+      }
+    }
+  }
+
+  &__item-img {
+    flex-basis: 35%;
+
+    @include sm {
+      display: none;
+    }
+
+  }
+
+  &__places {
+    width: rem(96px);
+    height: rem(96px);
+    border-radius: 100%;
+    color: $wc;
+    z-index: 9;
+    font-size: rem(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $roboto;
+    position: absolute;
+    border: rem(1px) solid rgba(#ccc, .3);
+    top: rem(30px);
+    right: rem(30px);
+
+    @include sm {
+      width: rem(70px);
+      height: rem(70px);
+    }
+
+    @include xs {
+      width: rem(40px);
+      height: rem(40px);
+      font-size: rem(14px);
+      top: rem(5px);
+      right: rem(5px);
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: rem(8px);
+      right: rem(8px);
+      bottom: rem(8px);
+      left: rem(8px);
+      background-color: #374049;
+      border-radius: 100%;
+      z-index: -9;
+    }
+  }
+}

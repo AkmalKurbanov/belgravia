@@ -1,16 +1,32 @@
 .plan {
-  padding: rem(60px) 0 rem(40px);
   position: relative;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
   position: relative;
+  padding: rem(60px) 0;
+
+  @include lg {
+    padding: rem(50px) 0;
+  }
+
+  @include md {
+    padding: rem(40px) 0;
+  }
+
+  @include sm {
+    padding: rem(30px) 0;
+  }
+
+  @include xs {
+    padding: rem(20px) 0;
+  }
 
   &:before {
     position: absolute;
     content: '';
-    background-color: rgba(#383838, .5);
+    background-color: rgba(#383838, .85);
     top: 0;
     right: 0;
     bottom: 0;
@@ -44,6 +60,221 @@
           opacity: 0.5;
         }
       }
+    }
+  }
+
+  &__plan-wrap {
+    padding-bottom: rem(45px);
+    margin-bottom: rem(45px);
+    border-bottom: rem(1px) solid rgba(#f4f6f9, .3);
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border: none;
+    }
+  }
+}
+
+
+
+
+
+
+.blocks {
+  .tabs {
+    text-align: center;
+    margin-bottom: rem(40px);
+
+    .ui-state-active {
+      .btn {
+        background-color: $mc;
+      }
+    }
+
+    &__item {
+      margin-right: rem(5px);
+      display: inline-block;
+      margin-bottom: rem(10px);
+
+      .btn {
+        padding: rem(8px) rem(50px);
+        color: $wc;
+        font-family: $roboto;
+        font-weight: 400;
+        outline: none;
+        font-size: rem(16px);
+
+        @include xs {
+          padding: rem(8px) rem(25px);
+        }
+      }
+    }
+
+  }
+
+  &__wrap {
+    background-color: $wc;
+    border-radius: rem(10px);
+    padding: rem(25px) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: rem(1px) solid rgba(#f4f6f9, .3);
+    margin-bottom: rem(50px);
+  }
+
+  &__img {
+    max-width: rem(630px);
+    width: 100%;
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+    }
+  }
+
+  &__slider-img {
+    max-width: rem(500px);
+    width: 100%;
+    display: flex;
+    margin-bottom: rem(20px);
+  }
+
+  &__item {
+    flex-basis: 48%;
+    background-color: $wc;
+    border-radius: rem(10px);
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &_about {
+      background-color: rgba(#626262, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: rem(45px);
+      position: relative;
+
+      @include md {
+        padding-left: rem(30px);
+      }
+
+      @include sm {
+        margin-top: rem(30px);
+        padding: rem(30px) 0 rem(30px) rem(30px);
+      }
+    }
+  }
+
+  &__slider-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: rem(40px) rem(30px) rem(10px);
+
+    @include xs {
+      padding: rem(30px) rem(15px) rem(10px);
+    }
+  }
+
+  &__slider-desc {
+    text-align: center;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .prev,
+    .next {
+      background-color: #d1d1d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: rem(50px);
+      width: rem(50px);
+      cursor: pointer;
+      transition: $tr;
+      border-radius: 0 rem(10px);
+
+      &:hover {
+        background-color: $mc;
+        color: $wc;
+      }
+    }
+
+    .prev {
+      transform: rotate(-180deg);
+      border-radius: 0 0 0 rem(10px);
+    }
+
+    .next {
+      border-radius: rem(10px) 0 0 0;
+    }
+  }
+
+  &__slider-title {
+    font-size: rem(20px);
+    color: $bc;
+    margin-bottom: rem(10px);
+    font-weight: 500;
+  }
+
+  &__slider-desc {
+    font-size: rem(16px);
+    color: #8b8b8b;
+    line-height: 1.5;
+  }
+
+  &__about-list {
+    ul {
+      li {
+        font-size: rem(18px);
+        margin-bottom: rem(30px);
+        color: #d5d5d5;
+
+        &:last-child {
+          margin: 0;
+        }
+
+        @include md {
+          margin-bottom: rem(20px);
+        }
+      }
+    }
+  }
+
+  &__about-title {
+    background-color: $wc;
+    width: rem(196px);
+    height: rem(65px);
+    display: inline-flex;
+    align-items: center;
+    border-radius: rem(10px) 0 0 rem(10px);
+    padding-left: rem(25px);
+    font-family: $roboto;
+    font-size: rem(20px);
+
+    @include lg {
+      width: rem(100px);
+    }
+
+    @include xs {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem(50px);
+      height: rem(40px);
+      border-radius: 0 0 0 rem(10px);
     }
   }
 }

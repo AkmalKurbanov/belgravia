@@ -1,10 +1,26 @@
 .gallery {
-  padding: rem(60px) 0 rem(40px);
   position: relative;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+  padding: rem(60px) 0;
+
+  @include lg {
+    padding: rem(50px) 0;
+  }
+
+  @include md {
+    padding: rem(40px) 0;
+  }
+
+  @include sm {
+    padding: rem(30px) 0;
+  }
+
+  @include xs {
+    padding: rem(20px) 0;
+  }
 
   &:before {
     position: absolute;
@@ -27,12 +43,15 @@
   &__item {
     flex-basis: 25%;
     position: relative;
+
+    @include xs {
+      flex-basis: 50%;
+    }
   }
 
   &__img {
     overflow: hidden;
-    height: rem(295px);
-    display: block;
+    display: flex;
     position: relative;
 
     i {
@@ -40,8 +59,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-360deg) scale(2);
-      width: 50px;
-      height: 50px;
+      width: rem(50px);
+      height: rem(50px);
       border-radius: 100%;
       display: flex;
       align-items: center;
@@ -50,6 +69,14 @@
       font-size: rem(30px);
       opacity: 0;
       transition: all .5s;
+
+      @include md {
+        width: rem(30px);
+        height: rem(30px);
+        font-size: rem(20px);
+      }
+
+
     }
 
     &:before {
@@ -62,6 +89,7 @@
       left: 0;
       opacity: 0;
       transition: $tr;
+
     }
 
     &:after {
@@ -75,6 +103,21 @@
       opacity: 0;
       transition: all .8s;
       transform: scale(2) rotate(360deg);
+
+      @include lg {
+        top: rem(15px);
+        right: rem(15px);
+        bottom: rem(15px);
+        left: rem(15px);
+      }
+
+      @include xs {
+        top: rem(10px);
+        right: rem(10px);
+        bottom: rem(10px);
+        left: rem(10px);
+      }
+
     }
 
     &:hover {

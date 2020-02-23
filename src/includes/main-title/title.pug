@@ -1,5 +1,5 @@
 mixin title(title, modificator, subTile, modificatorSubTile)
-  .title-wrap
+  .title-wrap.wow.fadeInDown
     h2.title(class=modificator)=title
     ul.title-element
       li
@@ -9,6 +9,5 @@ mixin title(title, modificator, subTile, modificatorSubTile)
           li
           li
       li
-  .sub-title(class=modificatorSubTile)
+  .sub-title.wow.fadeInDown(class=modificatorSubTile data-wow-duration="2s")
     p=subTile
-    

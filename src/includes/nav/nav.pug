@@ -1,0 +1,10 @@
+ul
+  mixin nav(item,link)
+    li(class=active).nav__item
+      a(href=link data-scroll)=item
+  +nav('Главная','#top')
+  +nav('О Проекте','#about')
+  +nav('Галерея','#gallery')
+  +nav('Преимущества','#advantages')
+  +nav('Объекты','#objects')
+  +nav('Контакты','#contacts')

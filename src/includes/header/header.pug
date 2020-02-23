@@ -1,7 +1,7 @@
-header.header
+header.header#top
   .header__top
     .container
-      .header__top-wrap
+      .header__top-wrap.wow.fadeInDown
         .header__contat
           p 
             i.icon-call-answer
@@ -9,35 +9,18 @@ header.header
           a(href="mailto:nurzamann-mail-ru")
             i.icon-mail
             | nurzamann-mail-ru 
-        .social
-          ul
-            mixin social(icon, link)
-              li
-                a(href=link)
-                  i(class=icon)
-            +social('icon-facebook','#')
-            +social('icon-instagram','#')
-            +social('icon-odnoklassniki','#')
-  .header__masterbar
+        include ../../includes/social/social
+  .header__masterbar.wow.fadeInUp
     .container
       .header__masterbar-wrap
-        .header__logo
-          a(href="#")
+        .logo
+          a(href="#top" data-scroll)
             img(src="assets/img/logo.svg" alt="")
         .header__control      
           .header.nav
-            ul
-              mixin nav(item,link)
-                 li(class=active).nav__item
-                  a(href=link)=item
-              +nav('Главная','#')
-              +nav('О Проекте','#')
-              +nav('Галерея','#')
-              +nav('Преимущества','#')
-              +nav('Объекты','#')
-              +nav('Контакты','#')
+            include ../../includes/nav/nav
           .btn-wrap
-            a(href="#").btn.btn_painted
-              |КОНСУЛЬТАЦИЯ
+            a(data-fancybox="" data-src="#consultation" href="javascript:;").btn.btn_painted
+              |заказть звонок
 
 

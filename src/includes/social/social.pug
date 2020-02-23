@@ -1,0 +1,9 @@
+.social.wow.fadeInDown
+  ul
+    mixin social(icon, link)
+      li
+        a(href=link)
+          i(class=icon)
+    +social('icon-facebook','#')
+    +social('icon-instagram','#')
+    +social('icon-odnoklassniki','#')
